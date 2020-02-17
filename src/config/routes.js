@@ -8,6 +8,6 @@ module.exports = function(server) {
 
     //Cria rotas dos services
     const BillingCycle = require('../api/billing-cycle/billingCycleService')
-    BillingCycle.register('router', '/billingCycles')
+    BillingCycle.register(router, '/billingCycles')
 
 }
