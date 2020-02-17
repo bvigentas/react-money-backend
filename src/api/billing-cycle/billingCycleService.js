@@ -1,9 +1,11 @@
 const BillingCycle = require('./billingCycle')//Importa Modelo
+const errorhandler = require('../common/errorhandler')
 
 //Criacao servicos REST
 BillingCycle.methods(['get', 'post', 'put', 'delete'])
 //Traz novo objeto ao update e faz validações criadas no Schema.
 BillingCycle.updateOptions({ new: true, runValidators: true })
+BillingCycle.after('post', errorhandler).after('put', errorhandler)
 
 BillingCycle.route('count', (req, res, next) => {
     BillingCycle.count((error, value) => {
